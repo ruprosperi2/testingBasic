@@ -21,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::post('/tags', App\Http\Controllers\TagController::class);
+
+Route::delete('/tags/{id}', App\Http\Controllers\TagDeleteController::class);
