@@ -29,11 +29,11 @@ class TagControllersTest extends TestCase
             ->assertRedirect('/');
 
         $this->assertDatabaseMissing('tags',[
-            "id" => $tag->id,
-            "name" => $tag->name,
-            "created_at" => Date("Y-m-d	H:m:s"),
-            "updated_at" => Date("Y-m-d	H:m:s")
+            'name' => $tag->name,
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')
         ]);
+
     }
 
     public function testValidate()
