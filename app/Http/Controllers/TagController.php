@@ -12,7 +12,11 @@ final class TagController extends Controller
 {
     public function __invoke(Request $request)
     {
-       Tag::create($request->all());
+       $request->validate([
+          'name' => 'required'
+       ]);
+
+        Tag::create($request->all());
 
         return redirect('/');
     }

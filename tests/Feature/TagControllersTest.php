@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature;
 
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,8 +21,6 @@ class TagControllersTest extends TestCase
 
     public function testDelete()
     {
-        $this->withoutExceptionHandling();
-
         $tag = Tag::factory()->create();
 
         $this->delete("/tags/$tag->id")
