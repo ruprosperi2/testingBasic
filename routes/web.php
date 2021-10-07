@@ -19,3 +19,5 @@ Route::get('/', function () {
         'tags' => Tag::get()
     ]);
 });
+
+Route::post('/tags', App\Http\Controllers\TagController::class);
