@@ -11,8 +11,8 @@ final class TagDeleteController extends Controller
 {
     public function __invoke(Tag $tag)
     {
-       $tag->delete();
+        $tag->delete();
 
-       return redirect('/');
+        return redirect('/');
     }
 }
