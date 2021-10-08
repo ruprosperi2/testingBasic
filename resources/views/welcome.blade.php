@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <title>Laravel</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-
-    <form action="/tags" method="POST">
+</head>
+<body class="bg-gray-200 py-10">
+<div class="max-w-lg bg-white mx-auto p-5 rounded shadow">
+    <form class="flex mb-4" action="/tags" method="POST">
         @csrf
-        <input type="text" name="name" placeholder="Etiqueta">
-        <input type="submit" value="Agregar">
+        <input type="text" name="name" placeholder="Etiqueta" class="rounded-l bg-gray-200 p-4 w-full outline-none">
+        <input type="submit" value="Agregar" class="rounded-r px-8 bg-blue-500 text-white outline-none">
     </form>
-    <h4>Listado de etiquetas</h4>
-      <table>
-          @forelse($tags as $tag)
-              <tr>
-                  <td>
-                      {{$tag->name}}
-                  </td>
-                  <td>
-                      <form action="/tags/{{$tag->id}}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <input type="submit" value="Eliminar">
-                      </form>
-                  </td>
-              </tr>
-          @empty
+    <h4 class="text-lg text-center mb-4">Listado de etiquetas</h4>
+    <table>
+        @forelse($tags as $tag)
+            <tr>
+                <td class="text-lg text-center mb-4 py-2">
+                    {{$tag->name}}
+                </td>
+                <td class="text-lg text-center mb-4 py-2">
+                    <form action="/tags/{{$tag->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Eliminar" class="px-3 rounded bg-red-500 text-white">
+                    </form>
+                </td>
+            </tr>
+        @empty
             <tr>
                 <td>No hay etiquetas</td>
             </tr>
-          @endforelse
-      </table>
-    </body>
+        @endforelse
+    </table>
+</div>
+</body>
 </html>
