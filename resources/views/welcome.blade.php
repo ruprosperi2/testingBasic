@@ -23,6 +23,9 @@
                     {{$tag->name}}
                 </td>
                 <td class="text-lg text-center mb-4 py-2">
+                    {{$tag->slug}}
+                </td>
+                <td class="text-lg text-center mb-4 py-2">
                     <form action="/tags/{{$tag->id}}" method="POST">
                         @csrf
                         @method('DELETE')
